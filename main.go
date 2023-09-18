@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
 	"strconv"
 
@@ -9,15 +8,13 @@ import (
 )
 
 type BaseResponse struct {
-	Status      bool        `json:"status"`
-	Message     string      `json:"message"`
-	TotalRating interface{} `json:"data"`
+	Status      bool   `json:"status"`
+	Message     string `json:"message"`
+	TotalRating string `json:"data"`
 }
 
-var totalInput int = 0
-var akumulasi int = 0
-
-// var teksKirimRating string = "Total Skor saat ini adalah: %akumulasi dari %totalInput input"
+var totalInput int = 0 //Akumulasi pemberian rating
+var akumulasi int = 0  //Akumulasi total skor rating
 
 func main() {
 	//Inisiasi Echo
@@ -29,8 +26,6 @@ func main() {
 
 	//Memulai echo
 	e.Start(":8000")
-
-	fmt.Println("Selamat datang di sistem Rating Input! ^-^)/ ")
 }
 
 func GetRatingController(c echo.Context) error {
